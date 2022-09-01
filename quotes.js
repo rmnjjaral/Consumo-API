@@ -28,26 +28,6 @@ const fakeData= [
 
 ]
 
-//obtain data
-function getData ( displayFunction ){
-
- //send request to API 
- const request = fetch ("https://breakingbadapi.com/api/quotes")
-
- //CALLBACK HELL
- request.then( function( response ){
-
-    response.json().then( function( data ){
-
-        displayFunction(data)
-
-    })
-
- })
-
-}
-
-
 //format data
 function formatQuote( quote ){
     const formattedQuote = {
@@ -57,6 +37,8 @@ function formatQuote( quote ){
     }
     return formattedQuote
 }
+
+
 //display on screen
 
 function createQuote ( quote ){
@@ -80,17 +62,32 @@ function createQuote ( quote ){
     return newQuote 
 
 }
+
+//interaction setup
+
+function setupInteraction(element){
+    element.addEventListener( "click", function(event) {
+
+        const el = event.target
+
+        console.log( el.getAttribute("data-id") )
+    })
+}
+
+
+
 function displayQuote( quote ){
 
     const container = document.querySelector("#information")
 
     const newQuote = createQuote(quote)
 
+    setupInteraction( newQuote )
+
     container.append( newQuote )
 
-    getAndDisplayquotes()
-
 }
+
 
 function displayQuotes( quotes ){
 
@@ -100,8 +97,9 @@ function displayQuotes( quotes ){
 
 }
 
+
 function getAndDisplayquotes(){
-    getData( displayQuotes )
+    getData( "quotes", displayQuotes )
 }
 
 

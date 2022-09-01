@@ -12,3 +12,44 @@ blockquote{
 blockquote .text{
     font-style: italic;
 }
+
+blockquote:hover {
+    background-color: #000;
+    color: #fff;
+}
+
+blockquote{
+    cursor: pointer;
+}
+
+blockquote * {
+    pointer-events: none;
+}
+
+.character {
+    width: 18rem;
+    background-color: #fff;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.1);
+}
+
+.character img {
+    width: 100%;
+    height: 18rem;
+    object-fit: cover;
+}
+
+.character .text {
+    padding: 1rem;
+}
+
+.model {
+    display: none;
+}
+
+#characters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+
+}
