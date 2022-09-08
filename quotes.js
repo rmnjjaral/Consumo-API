@@ -99,7 +99,12 @@ function displayQuotes( quotes ){
 
 
 function getAndDisplayquotes(){
-    getData( "quotes", displayQuotes )
+    getData({
+        endpoint: "quotes", 
+        pageNum: 0,
+        elementsPerPage: 5,
+        displayFunction: displayQuotes
+    } )
 }
 
 

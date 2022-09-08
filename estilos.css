@@ -53,3 +53,8 @@ blockquote * {
     gap: 2rem;
 
 }
+
+#pagination {
+    text-align: center;
+    padding: 1rem;
+}
